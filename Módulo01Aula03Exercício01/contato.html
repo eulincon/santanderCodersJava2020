@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <title>Contato</title>
+    <style>
+      .form-group {
+        margin: 20px;
+        border-left: solid 6px purple;
+        background-color: darkgray;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="contato container">
+      <div class="nav">
+        <span>
+          <a href="index.html" class="button">Home</a>
+        </span>
+      </div>
+
+      <strong style="text-align: center;">
+        <header>Formulário de Contato</header>
+      </strong>
+      <form action="#">
+        <div class="form-group">
+          <label for="name">Nome: </label><br />
+          <input type="text" name="name" id="name" />
+        </div>
+
+        <div class="form-group">
+          <label for="surname">Sobrenome: </label><br />
+          <input type="text" name="surname" id="surname" /><br />
+        </div>
+
+        <div class="form-group">
+          <label for="email">E-mail:</label><br />
+          <input type="email" name="email" id="email" /><br />
+        </div>
+
+        <div class="form-group">
+          <label for="subject">Assunto: </label><br />
+          <select name="subject" id="subject">
+            <option value="reclamacao">Reclamação</option>
+            <option value="duvida">Dúvida</option>
+            <option value="informacao">Informação</option> </select
+          ><br />
+        </div>
+
+        <div class="form-group">
+          <label for="gender">Gênero: </label><br />
+          <input type="radio" id="male" name="gender" value="male" />
+          <label for="male">Masculino</label><br />
+          <input type="radio" id="female" name="gender" value="female" />
+          <label for="female">Ferminino</label><br />
+          <input
+            type="radio"
+            id="decline-answer"
+            name="gender"
+            value="decline-answer"
+          />
+          <label for="other">Prefiro não responder</label><br />
+        </div>
+
+        <div class="form-group">
+          <label for="">Passatempo</label><br />
+          <input type="checkbox" id="sports" name="sports" value="Sports" />
+          <label for="sports"> Praticar esportes</label><br />
+          <input type="checkbox" id="read" name="read" value="Read" />
+          <label for="read"> Ler</label><br />
+          <input type="checkbox" id="series" name="series" value="Series" />
+          <label for="series"> Assistir séries</label><br />
+          <input type="checkbox" id="news" name="news" value="News" />
+          <label for="news"> Ver notícias</label><br />
+          <input type="checkbox" id="games" name="games" value="Games" />
+          <label for="games"> Games</label><br />
+        </div>
+
+        <div class="form-group">
+          <label for="comments">Comentários</label><br />
+          <textarea
+            name="comments"
+            id="comments"
+            maxlength="300"
+            rows="5"
+            cols="50"
+            placeholder="Adicione algo que achar necessário"
+          ></textarea
+          ><br />
+        </div>
+
+        <div class="form-group">
+          <button type="submit">Enviar</button>
+          <button type="reset">resetar</button>
+        </div>
+      </form>
+      <hr />
+    </div>
+  </body>
+</html>

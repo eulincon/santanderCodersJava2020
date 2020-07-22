@@ -1,0 +1,92 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: lightblue;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+div.navbar {
+    width: 960px;
+    margin: 30px 0 30px 0;
+    padding: 5px;
+    display: flex;
+    background-color: tomato;
+}
+
+a.buttom {
+    margin: 5px;
+    color: white;
+    font-size: 1.5em;
+    text-decoration: none;
+    padding: 5px;
+}
+
+a.active {
+    background-color: whitesmoke;
+    border-radius: 5px;
+    color: black;
+}
+
+main {
+    background-color: white;
+    width: 960px;
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+
+div.card {
+    width: 300px;
+    height: 200px;
+    margin: 10px;
+    display: flex;
+    position: relative;
+}
+
+div.card img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.title-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 18px;
+    color: white;
+    font-weight: bolder;
+    font-style: italic;
+    width: 100%;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.vermais-buttom {
+    position: absolute;
+    padding-top: 5px;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 18px;
+    color: white;
+    font-weight: bolder;
+    width: 40%;
+    height: 2rem;
+    text-align: center;
+    background-color: red;
+    text-decoration: none;
+}
+
+.tag-product {
+    position: absolute;
+    left: 65%;
+    width: 100px;
+    height: 90px;
+}

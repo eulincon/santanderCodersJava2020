@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript</title>
+    <style>
+        div{
+            display: none;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function(){
+
+            var arrayQuestao6 = [3, 4.7, 8.5, 7.1, 6.4, 9.2, 9.8, 5.5, 7.4, 7];
+
+            var produto1 = {
+                nome: 'Feijão',
+                preco: 4.78
+            };
+            var produto2 = {
+                nome: 'Arroz',
+                preco: 3.50
+            };
+            var produto3 = {
+                nome: 'Macarrão',
+                preco: 2.73
+            };
+            var arrayQuestao7 = [produto1,produto2,produto3];
+
+            var arrayQuestao8 = [
+                {nome: 'José', serie: 8},
+                {nome: 'Maira', serie: 9},
+                {nome: 'João', serie: 8},
+                {nome: 'Maria', serie: 9},
+                {nome: 'Josué', serie: 8},
+                ];
+
+
+            document.querySelectorAll('.nav').forEach(button => {
+                button.onclick = function(){
+                    showPage(this.dataset.page);
+                }
+            });
+            // Execução questão 1
+            document
+            .querySelector('#submit1')
+            .addEventListener('click', function(e){
+                const element = document.querySelector('#input1');
+                let result = parOuImpar(element.value);
+                console.log(element.value, result);
+                document.querySelector('#result1').innerHTML = `O número <strong>${element.value}</strong> é <strong>${result}</strong>`;
+                element.value = '';
+            });
+            // Execução questão 2
+            document
+            .querySelector('#submit2')
+            .addEventListener('click', ()=>{
+                const element = document.querySelector('#input2');
+                let result = ePrimo(element.value);
+                console.log(element.value, result);
+                document.querySelector('#result2').innerHTML = `O número <strong>${element.value}</strong> <strong>${result ? 'é primo' : 'não é primo'}</strong>`;
+                element.value = '';
+            });
+            // Execução questão 6
+            document
+            .querySelector('#arrayQuestao6').innerHTML += arrayQuestao6;
+            acimaDe7(arrayQuestao6);
+            // Execução questão 7
+            document
+            .querySelector('#btnQuestion7')
+            .addEventListener('click', ()=>{
+                console.log('Array questão 7:', arrayQuestao7);
+                console.log('Questão 7:', somaProdutos(arrayQuestao7));
+            });
+            // Execução questão 8
+            document
+            .querySelector('#btnQuestion8')
+            .addEventListener('click', ()=>{
+                console.log(arrayQuestao8);
+            })
+            document
+            .querySelector('#btnIncluirDisciplina')
+            .addEventListener('click', ()=>{
+                incluirDisciplina(arrayQuestao8);
+            });
+
+
+        })
+
+        // Função questão 1
+        function parOuImpar(x){
+            let par = x % 2 == 0;
+            return par ? 'Par' : 'Impar';
+        }
+
+        // Função questão 2
+        const ePrimo = num => {
+            for(let i = 2; i < num; i++)
+                if(num % i === 0) return false;
+            return num > 1;
+        }
+
+        // Função questão 6
+        function acimaDe7(array){
+            //console.log(array);
+            array.forEach(e => {
+                if(e > 7){
+                    const li = document.createElement('li');
+                    li.innerHTML = `<li>${e}</li>`;
+                    document.querySelector('#resultQuestao6').append(li)
+                }
+            });
+        }
+
+        // Função questao 7
+        function somaProdutos(arrayQuestao7){
+            let a = 0;
+            (arrayQuestao7).forEach(e => {
+                a += e.preco;
+            })
+            return a;
+        }
+
+        // Função questão 8
+        function incluirDisciplina(arrayAlunos){
+            arrayAlunos.forEach(e => {
+                if (e.serie == 8) {
+                    e.disciplina = 'História';
+                }else if (e.serie == 9){
+                    e.disciplina = 'Física';
+                }
+            })
+            console.log(arrayAlunos);
+        }
+
+        // Função mostrar página
+        function showPage(page){
+            document.querySelectorAll('div').forEach(div => {
+                div.style.display = 'none';
+            })
+            document.querySelector(`#${page}`).style.display = 'block';
+        }
+
+    
+    </script>
+</head>
+<body>
+    <h1>Atividade Javascript</h1>
+    <button class="nav" data-page="question1">question 1</button>
+    <button class="nav" data-page="question2">question 2</button>
+    <button class="nav" data-page="question3">question 3</button>
+    <button class="nav" data-page="question6">question 6</button>
+    <button class="nav" data-page="question7">question 7</button>
+    <button class="nav" data-page="question8" id="btnQuestion8">question 8</button>
+
+    <hr>
+    <div id="question1">
+        <p>1. Crie uma função que recebe um número e verifica se ele é ímmpar ou par</p>
+        <input type="number" id="input1">
+        <button id="submit1">Verificar</button>
+        Result: <span id="result1"></span>
+    </div>
+
+    <div id="question2">
+        <p>2. Crie uma função que recebe um número e verifica se ele é ímmpar ou par</p>
+        <input type="number" id="input2">
+        <button id="submit2">Verificar</button>
+        Result: <span id="result2"></span>
+    </div>
+    
+    <div id="question3">
+        <p>this is question 3</p>
+    </div>
+
+    <div id="question6">
+        <p>6. Crie um array com as seguintes notas [5.3, 4.7, 8.5, 7.1, 6.4, 9.2, 9.8, 5.5, 7.4, 7.0], construa uma função para imprimir apenas as notas acima de 7</p>
+        <p id="arrayQuestao6">array: </p>
+        Números acima de 7: <ul id="resultQuestao6"></ul>
+    </div>
+
+    <div id="question7">
+        <p>7. Crie um array de objetos onde cada objeto será um produto de supermercado e terá o nome do produto e o seu respectivo preço, agora construa uma função que some todos os valores e te devolva o total.</p>
+        <button id="btnQuestion7">Ver resultado no console</button>
+    </div>
+
+    <div id="question8">
+        <p>8. Em uma escola ficou definido que os alunos do 8º ano terão aulas de história e os alunos do 9º terão aulas de física às quartas-feiras. Você deve criar uma função que receba um arrayde objetos contendo nome e série de cada aluno e atribua a suarespectiva disciplina da quarta-feira. (O array de alunos deve sercriado como você desejar contanto que contenha pelo menos 5alunos).</p>
+        <p>Dados no console</p>
+        <button id="btnIncluirDisciplina">Rodar função Incluir disciplina</button>
+    </div>
+
+</body>
+</html>
